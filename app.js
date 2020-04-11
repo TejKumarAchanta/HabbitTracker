@@ -41,7 +41,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/auth", authRouter);
-// app.use("/");
+
+// Sample Route
+app.get("/", (req, res) => {
+  res.send(`Running on ${config.get("port")}`);
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
